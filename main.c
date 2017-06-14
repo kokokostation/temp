@@ -51,7 +51,13 @@ double norm(const struct Dot* a)
 
 double angle(const struct Dot* a, const struct Dot* b)
 {
-    return acos(dot(a, b) / (norm(a) * norm(b))) * (cross(a, b) < 0 ? -1 : 1);
+    double cos_ = dot(a, b) / (norm(a) * norm(b));
+    if(cos_ > 1)
+        cos_ = 1;
+    else if(cos_ < -1)
+        cos_ = -1;
+
+    return acos(cos_) * (cross(a, b) < 0 ? -1 : 1);
 }
 
 char in(const struct Dot* a, const struct Dot* polygon, int polygon_size)
