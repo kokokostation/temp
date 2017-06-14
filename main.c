@@ -57,7 +57,7 @@ double angle(const struct Dot* a, const struct Dot* b)
 char in(const struct Dot* a, const struct Dot* polygon, int polygon_size)
 {
     double angle_sum = 0;
-    char on_line = 0;
+
     for(int i = 0; i < polygon_size; ++i)
     {
         struct Dot left = sub(polygon + i , a);
